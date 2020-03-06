@@ -1,2 +1,6 @@
+
 # myVanilla
-current time, todolist, random bg, get weather info ,,
+get weather info
+todolist, 
+random bg,
+localstorage

@@ -12,16 +12,10 @@ function filterFn(_todo) {
 }
 
 function deleteTodo(event) {
-    // console.dir(event.target);
-    // console.log(event.target.parentNode);
     const btn = event.target;
     const li = btn.parentNode;
-
     todoUl.removeChild(li);
     
-    // filter는 마치 forEach에서 function을 실해하는 것 같이 각각의 item과 같이 실행됨.
-    // filters는 array의 모든 아이템을 통해 함수를 실행함 그리고 true인 아이템만 가지고 새로운 array를 만들고 ~
-    // filter forEach 둘다 list에 있는 item을 위한 함수 실행 시
     const cleanToDos = todos.filter(function(toDo) {
         return toDo.id !== parseInt(li.id)
     });
@@ -29,11 +23,9 @@ function deleteTodo(event) {
     todos = cleanToDos;
     saveTodos();
     console.log(cleanToDos)
-    //console.log(event.target);
 }
 
 function saveTodos() {
-    // localstorage는 string으로밖에 저장이 안되, 그래서 JSON.stringify를 사용험
     localStorage.setItem(TODOS_LS, JSON.stringify(todos));
 }
 

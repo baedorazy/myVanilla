@@ -1,21 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,800&display=swap');
+
 body {
     background: #34495e;
-}
-body ~ img {
-    transition: opacity, .3s;
-    opacity: 0;
-}
-
-body ~ img.bg-image {
-    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
 }
 
+h1,h2,h4 {
+    margin: 0;
+    font-weight: 400;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    color: #fff;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 300;
+}
+.wrapper h1 {
+    margin-bottom: 40px;
+}
+
+.name-form {
+    display: none;
+}
 .hide {
     display: none;
 }
-
 .show {
     display: block;
+}
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.btn {
+    cursor: pointer;
 }
 
 @keyframes fadeIn {
@@ -40,13 +70,64 @@ body ~ img.bg-image {
     animation: .3s linear 1s slideIn;
 }
 
-
 .clicked {
     color: #1abc9c;
 }
 
-.btn {
-    cursor: pointer;
+.clock {
+    display: block;
+    font-size: 5em;
 }
 
+.form {
+    text-align: center;
+}
 
+input {
+    border: 0;
+    color: white;
+    border-bottom: 2px solid white;
+    text-align: center;
+    outline: none;
+}
+
+input::placeholder {
+    color: white;
+}
+
+.form input {
+    text-align: left;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 36px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+form .small {
+    font-size: 22px;
+}
+
+h4 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+li {
+    font-size: 22px;
+    font-weight: 400;
+}
+li button {
+    margin-right: 4px;
+    vertical-align: middle;
+    font-family: verdana;
+    border-radius: 0;
+    display: inline-block;
+    background: none;
+    border: none;
+    padding-bottom: 6px;
+    color: #fff;
+    font-size: 1.4rem;
+    outline: none;
+}

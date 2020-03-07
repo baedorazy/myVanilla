@@ -7,21 +7,21 @@
 </head>
 <body>
 <div class="wrapper">
-    <div class="js-clock">
+    <span class="js-weather weather"></span>
+
+    <div class="js-clock clock">
         <h1>00:00:00</h1>
     </div>
-    <form class="js-form form hide">
+    <form class="js-form form name-form">
         <input type="text" placeholder="What is your name? ">
-        <input type="submit" value="submit">
     </form>
-    <h4 class="js-greetings greetings hide"></h4>
+    <h4 class="js-greetings greetings"></h4>
 
-    <form class="js-toDoForm">
-        <input type="text" placeholder="Write a to do">
+    <form class="js-toDoForm form">
+        <input type="text" class="small" placeholder="Write a to do">
     </form>
 
-    <span class="js-weather"></span>
-    <ul class="js-ul"></ul>
+    <ul class="js-ul todos"></ul>
 </div>
 
 <script src="js/clock.js"></script>

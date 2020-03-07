@@ -8,7 +8,8 @@
     function paintImage(_num) {
         const image = new Image();
         image.src = `./images/${_num + 1}.jpg`;
-        image.classList.add("bg-image");
+        image.classList.add(`bg-image`);
+        body.classList.add(`bg_${_num+1}`);
         body.prepend(image);
         image.addEventListener("loadend", handleImageLoad())
     }

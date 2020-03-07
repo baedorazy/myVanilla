@@ -3,9 +3,7 @@
 
 ### vanilla script study
 
-* **2020/03/07**
-=============  
-
+> updated 2020/03/07
 1. Get weather API connection  
 2. Localstorage set get remove
 3. Date object control

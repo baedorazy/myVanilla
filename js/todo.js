@@ -1,12 +1,10 @@
 (function() {
     const todoForm = document.querySelector(".js-toDoForm"),
         toodInput = todoForm.querySelector("input"),
-        todoUl = document.querySelector(".js-ul"),
-        li = todoUl.querySelector("li");
+        todoUl = document.querySelector(".js-ul");
     
     const TODOS_LS = 'toDos';
     let todos = [];
-    
     
     function deleteTodo(event) {
         const btn = event.target;

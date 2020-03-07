@@ -17,7 +17,6 @@
         
         todos = cleanToDos;
         saveTodos();
-        console.log(cleanToDos)
     }
     
     function saveTodos() {
@@ -44,7 +43,6 @@
         };
         
         todos.push(todoObj);
-        console.log(todoObj);
         saveTodos(todos);
     }
     
@@ -65,7 +63,7 @@
                 paintTodo(el.text)
             })
         } else {
-            console.log("first null");
+            console.log("first.");
         }
     }
     

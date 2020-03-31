@@ -1,0 +1,25 @@
+{
+  "name": "myvanilla",
+  "version": "1.0.0",
+  "description": "vanilla script study",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm install && node meadowlark.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baedorazy/myVanilla.git"
+  },
+  "keywords": [
+    "vanilla","script"
+  ],
+  "engines":{
+    "node": "10.16.3"
+  },
+  "author": "baedorazy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baedorazy/myVanilla/issues"
+  },
+  "homepage": "https://github.com/baedorazy/myVanilla#readme"
+}

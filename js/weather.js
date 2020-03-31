@@ -12,7 +12,6 @@
         }).then(function(json) {
             const temp = json.main.temp;
             const place = json.name;
-            console.log("inininfetch ");
             weather.innerText = `${temp} @ ${place}`
         });
     }
@@ -22,7 +21,6 @@
     }
     
     function handleGeoSuccess(position) {
-        console.log('position: ', position);
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         const coordsObj = {

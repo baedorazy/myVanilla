@@ -50,16 +50,30 @@ ul, li {
     cursor: pointer;
 }
 
-@keyframes fadeIn {
+.sparkle {
+    position: fixed;
+    border-radius: 50%;
+    z-index: 100;
+    animation: fadeOut 1s cubic-bezier(0.25, 0.1, 0.75, 1) infinite alternate;
+}
+
+@keyframes fadeOut {
     from {
-        opacity: 0;
+        opacity: 1;
     }
     50% {
         opacity: 0.5;
     }
     to {
-        opacity: 1;
+        opacity: 0;
     }
+}
+
+.weather {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+
 }
 
 .bg-image {

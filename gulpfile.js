@@ -7,15 +7,14 @@ const gulp          = require('gulp');
     
 const  gp_sass      = require('gulp-sass'),
        gp_clean_css = require('gulp-clean-css');
-
 const gp_image      = require('gulp-image');
+
 const fs = require('fs');
 
 const SRC = {
     js: './src/js/',
     img: './src/images/',
     scss: './src/scss/',
-    less: './src/less/',
 };
 
 const DIST = {
@@ -39,9 +38,9 @@ gulp.task('sassCss', function () {
 });
 
 gulp.task('minifyCss', () => {
-    return gulp.src(`${SRC.less}*.css`)
+    return gulp.src(`${SRC.scss}*.sess`)
     .pipe(gp_clean_css({compatibility: 'ie8'}))
-    .pipe(gulp.dest(`${DIST.css}`));       // 출력 경로
+    .pipe(gulp.dest(`${DIST.css}`));
 });
 
 gulp.task('cpImg', function () {
@@ -52,8 +51,9 @@ gulp.task('cpImg', function () {
 
 gulp.task('watch', function() {
     gulp.watch(`${SRC.scss}*.scss`, gulp.series('sassCss'));
+    gulp.watch(`${SRC.scss}*.css`, gulp.series('minifyCss'));
     gulp.watch(`${SRC.js}*.js`, gulp.series('minifyJs'));
     gulp.watch(`${SRC.img}*.*`, gulp.series('cpImg'));
 });
 
-gulp.task('default', gulp.series(['minifyJs', 'sassCss', 'watch']));
+gulp.task('default', gulp.series(['minifyJs', 'sassCss', 'cpImg', 'minifyCss', 'watch']));

@@ -27,19 +27,19 @@ const DIST = {
 gulp.task('minifyJs', function(){
     return gulp.src([`${SRC.js}*.js`])
     .pipe(gp_concat('all.min.js'))
-    .pipe(gulp.dest(DIST.js)) // .dest 어디에 저장할지 지정
+    .pipe(gulp.dest(DIST.js))
     .pipe(gp_terser())
     .pipe(gulp.dest(DIST.js));
 });
 
 gulp.task('sassCss', function () {
-    return gulp.src(`${SRC.scss}/*.scss`)  // 입력 경로
+    return gulp.src(`${SRC.scss}/*.scss`)
     .pipe(gp_sass().on('error', gp_sass.logError))
-    .pipe(gulp.dest(`${DIST.css}`));       // 출력 경로
+    .pipe(gulp.dest(`${DIST.css}`));
 });
 
 gulp.task('minifyCss', () => {
-    return gulp.src(`${SRC.less}*.css`)    //
+    return gulp.src(`${SRC.less}*.css`)
     .pipe(gp_clean_css({compatibility: 'ie8'}))
     .pipe(gulp.dest(`${DIST.css}`));       // 출력 경로
 });

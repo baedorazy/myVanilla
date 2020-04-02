@@ -12,8 +12,6 @@
         let wrapper = document.querySelector(".wrapper");
         let originSpan = document.createElement("span");
         
-        console.log('x:', _position.x, "Y: ", _position.y);
-        
         originSpan.setAttribute("style", `left: ${_position.x}; top:${_position.y}`);
         wrapper.appendChild(originSpan);
         originSpan.className = "origin";

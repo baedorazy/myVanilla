@@ -1,7 +1,5 @@
 .idea/
 .DS_Store
-package-*
 node_modules
 animate.*
-dist/css/ani.css
-./src
+src

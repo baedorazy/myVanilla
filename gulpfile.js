@@ -1,16 +1,21 @@
 // gulpfile.js
-var gulp = require('gulp');
-    gp_concat = require('gulp-concat'),
-    gp_rename = require('gulp-rename'),
-    gp_terser = require('gulp-terser'),
-    gp_minify = require('gulp-minify');
+const gulp          = require('gulp');
+    gp_concat       = require('gulp-concat'),
+    gp_rename       = require('gulp-rename'),
+    gp_terser       = require('gulp-terser'),
+    gp_minify       = require('gulp-minify');
     
-var sass = require('gulp-sass');
-var fs = require('fs');
+const  gp_sass      = require('gulp-sass'),
+       gp_clean_css = require('gulp-clean-css');
+
+const gp_image      = require('gulp-image');
+const fs = require('fs');
 
 const SRC = {
     js: './src/js/',
+    img: './src/images/',
     scss: './src/scss/',
+    less: './src/less/',
 };
 
 const DIST = {
@@ -19,7 +24,7 @@ const DIST = {
     img: './dist/images'
 };
 
-gulp.task('minify', function(){
+gulp.task('minifyJs', function(){
     return gulp.src([`${SRC.js}*.js`])
     .pipe(gp_concat('all.min.js'))
     .pipe(gulp.dest(DIST.js)) // .dest 어디에 저장할지 지정
@@ -27,18 +32,28 @@ gulp.task('minify', function(){
     .pipe(gulp.dest(DIST.js));
 });
 
-// 일반 컴파일
-gulp.task('sass', function () {
-    return gulp.src(`${SRC}/*.scss`)  // 입력 경로
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(`${DIST.css}`));  // 출력 경로
+gulp.task('sassCss', function () {
+    return gulp.src(`${SRC.scss}/*.scss`)  // 입력 경로
+    .pipe(gp_sass().on('error', gp_sass.logError))
+    .pipe(gulp.dest(`${DIST.css}`));       // 출력 경로
 });
 
-// gulp4 -> watch
+gulp.task('minifyCss', () => {
+    return gulp.src(`${SRC.less}*.css`)    //
+    .pipe(gp_clean_css({compatibility: 'ie8'}))
+    .pipe(gulp.dest(`${DIST.css}`));       // 출력 경로
+});
+
+gulp.task('cpImg', function () {
+    gulp.src(`${SRC.img}*.*`)
+    .pipe(gp_image())
+    .pipe(gulp.dest(`${DIST.img}`));
+});
+
 gulp.task('watch', function() {
-    gulp.watch(`${SRC.scss}*.scss`, gulp.series('sass'));
-    gulp.watch(`${SRC.js}*.js`, gulp.series('minify'));
-    gulp.watch(`${SRC.img}*.*`, gulp.series('images'));
+    gulp.watch(`${SRC.scss}*.scss`, gulp.series('sassCss'));
+    gulp.watch(`${SRC.js}*.js`, gulp.series('minifyJs'));
+    gulp.watch(`${SRC.img}*.*`, gulp.series('cpImg'));
 });
 
-gulp.task('default', gulp.series(['minify', 'sass', 'watch']));
+gulp.task('default', gulp.series(['minifyJs', 'sassCss', 'watch']));

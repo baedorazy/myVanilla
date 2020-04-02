@@ -43,7 +43,7 @@ gulp.task('minifyCss', () => {
     .pipe(gulp.dest(`${DIST.css}`));
 });
 
-gulp.task('cpImg', function () {
+gulp.task('cpImg', async function () {
     gulp.src(`${SRC.img}*.*`)
     .pipe(gp_image())
     .pipe(gulp.dest(`${DIST.img}`));

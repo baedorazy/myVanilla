@@ -38,7 +38,7 @@ gulp.task('sassCss', function () {
 });
 
 gulp.task('minifyCss', () => {
-    return gulp.src(`${SRC.scss}*.sess`)
+    return gulp.src(`${SRC.scss}*.scss`)
     .pipe(gp_clean_css({compatibility: 'ie8'}))
     .pipe(gulp.dest(`${DIST.css}`));
 });

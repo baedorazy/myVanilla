@@ -1,12 +1,12 @@
 // gulpfile.js
 const gulp          = require('gulp');
-    gp_concat       = require('gulp-concat'),
+gp_concat       = require('gulp-concat'),
     gp_rename       = require('gulp-rename'),
     gp_terser       = require('gulp-terser'),
     gp_minify       = require('gulp-minify');
-    
+
 const  gp_sass      = require('gulp-sass'),
-       gp_clean_css = require('gulp-clean-css');
+    gp_clean_css = require('gulp-clean-css');
 const gp_image      = require('gulp-image');
 
 const fs = require('fs');
@@ -32,7 +32,7 @@ gulp.task('minifyJs', function(){
 });
 
 gulp.task('sassCss', function () {
-    return gulp.src(`${SRC.scss}/*.scss`)
+    return gulp.src([`${SRC.scss}/*.scss`, `${SRC.scss}/*.css`])
     .pipe(gp_sass().on('error', gp_sass.logError))
     .pipe(gulp.dest(`${DIST.css}`));
 });

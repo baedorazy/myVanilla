@@ -1,0 +1,93 @@
+@import url(//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+//------------------------------------------------
+// reset
+body {
+    font-family: 'NanumSquare', sans-serif;
+}
+
+ol, ul, li {
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    font-weight: 400;
+}
+
+header, footer {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    border: 0;
+    color: white;
+    border-bottom: 2px solid white;
+    text-align: center;
+    outline: none;
+}
+
+button {
+    vertical-align: middle;
+    border-radius: 0;
+    display: inline-block;
+    background: none;
+    border: none;
+    padding-bottom: 6px;
+    font-size: 1.4rem;
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: white;
+}
+
+form input {
+    text-align: left;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 36px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+/*------------------------------------------------*/
+$mainColor: purple;
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+h1 {
+    visibility: hidden;
+}
+section {
+    height: 800px;
+    &:nth-child(even) {
+        background: silver;
+    }
+}
+
+.dot {
+    width: 80px;
+    height: 80px;
+    background: pink;
+    border-radius:(50%);
+}
+
+footer {
+    border-top: 4px solid desaturate($mainColor, 10%);
+}

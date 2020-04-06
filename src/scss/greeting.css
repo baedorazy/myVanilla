@@ -42,9 +42,11 @@ header {
 }
 
 .origin {
+    position: fixed;
     background: pink;
     width: 5px;
     height: 5px;
+    border-radius: 50%;
 }
 
 .sparkle {

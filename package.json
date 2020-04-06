@@ -4,7 +4,7 @@
   "description": "vanilla script study",
   "main": "index.js",
   "scripts": {
-    "test": "npm install && node meadowlark.js"
+    "dev": "gulp"
   },
   "repository": {
     "type": "git",
